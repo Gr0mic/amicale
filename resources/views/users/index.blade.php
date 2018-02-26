@@ -2,13 +2,15 @@
 
 @section('content')
     <div class="container-fluid">
-        <h2>Users</h2>
+        <h2>Liste des utilisateurs</h2>
 
-        <table class="table">
+        <a href="{{ route('user.create') }}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Ajouter un utilisateur</a>
+
+        <table class="table mt-3">
             <thead>
-            <tr>
-                <th scope="col">Name</th>
-            </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                </tr>
             </thead>
             <tbody>
             @foreach ($users as $user)

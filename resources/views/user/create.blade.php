@@ -4,11 +4,15 @@
     <div class="container-fluid">
         <h2>Users create</h2>
 
-        {!! Form::open(['route' => 'user.store']) !!}
+    @include('common.errors')
 
-        {!! Form::text('lastname', 'Nom') !!}
-        {!! Form::text('firstname', 'Prénom') !!}
-        {!! Form::email('email', 'jhon@doo.coo') !!}
+        {!! Form::model(null, ['route' => 'user.store']) !!}
+
+        {!! Form::text('lastname') !!}
+        {!! Form::text('firstname') !!}
+        {!! Form::email('email') !!}
+
+        {!! Form::submit('Click Me!') !!}
 
         {!! Form::close() !!}
 

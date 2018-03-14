@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use function Psy\debug;
 
 class UserController extends Controller
 {
@@ -34,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|max:255',
+            'firstname' => 'required|max:255',
+            'email' => 'required|email',
+        ]);
+
+
     }
 
     /**

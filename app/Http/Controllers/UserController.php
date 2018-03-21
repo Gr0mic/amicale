@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUser;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use function Psy\debug;
 
 class UserController extends Controller
@@ -34,14 +38,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUser $request)
     {
-        $this->validate($request, [
-            'lastname' => 'required|max:255',
-            'firstname' => 'required|max:255',
-            'email' => 'required|email',
-        ]);
+        $user = new User();
+        $user->name = Input::get('lastname');
+        $user->email = Input::get('email');
+        $user->password = bcrypt(0000);
+        $user->save();
 
+        Session::flash('message', 'Successfully created user!');
+        return Redirect::to('users');
 
     }
 

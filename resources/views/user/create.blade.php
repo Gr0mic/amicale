@@ -8,11 +8,27 @@
 
         {!! Form::model(null, ['route' => 'user.store']) !!}
 
-        {!! Form::text('lastname') !!}
-        {!! Form::text('firstname') !!}
-        {!! Form::email('email') !!}
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {!! Form::label('lastname', 'Prénom')!!}
+                    {!! Form::text('lastname', null, ['class'=>'form-control' ]) !!}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {!! Form::label('firstname', 'Nom')!!}
+                    {!! Form::text('firstname', null,  ['class'=>'form-control']) !!}
+                </div>
+            </div>
+        </div>
 
-        {!! Form::submit('Click Me!') !!}
+        <div class="form-group">
+            {!! Form::label('firstname', 'Adresse email')!!}
+            {!! Form::email('email', null,  ['class'=>'form-control']) !!}
+        </div>
+
+        {!! Form::submit('Click Me!', ['class' => 'btn btn-primary']) !!}
 
         {!! Form::close() !!}
 
